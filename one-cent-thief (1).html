@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM BREACH DETECTED</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 0, 0.03) 0px,
+                rgba(0, 255, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hacked-screen {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .skull {
+            font-size: 100px;
+            text-align: center;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #f00;
+            text-shadow: 0 0 10px #f00, 0 0 20px #f00;
+            margin-bottom: 30px;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 10px #f00, 0 0 20px #f00;
+            }
+            25% {
+                text-shadow: -2px 0 10px #f00, 2px 0 20px #0ff;
+            }
+            50% {
+                text-shadow: 2px 0 10px #f00, -2px 0 20px #0ff;
+            }
+            75% {
+                text-shadow: -2px 0 10px #0ff, 2px 0 20px #f00;
+            }
+            100% {
+                text-shadow: 0 0 10px #f00, 0 0 20px #f00;
+            }
+        }
+
+        .terminal {
+            background: rgba(0, 20, 0, 0.8);
+            border: 2px solid #0f0;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .terminal-line {
+            margin: 10px 0;
+            animation: typewriter 0.5s steps(40) forwards;
+            opacity: 0;
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0.5s; }
+        .terminal-line:nth-child(2) { animation-delay: 1s; }
+        .terminal-line:nth-child(3) { animation-delay: 1.5s; }
+        .terminal-line:nth-child(4) { animation-delay: 2s; }
+        .terminal-line:nth-child(5) { animation-delay: 2.5s; }
+        .terminal-line:nth-child(6) { animation-delay: 3s; }
+
+        @keyframes typewriter {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .error {
+            color: #f00;
+            font-weight: bold;
+        }
+
+        .warning {
+            color: #ff0;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .popup {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d0000 100%);
+            border: 3px solid #f00;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.8), 0 0 100px rgba(255, 0, 0, 0.5);
+            text-align: center;
+            animation: popupSlide 0.5s ease-out;
+        }
+
+        @keyframes popupSlide {
+            from {
+                transform: scale(0.5) translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .popup h2 {
+            color: #f00;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #f00;
+        }
+
+        .popup p {
+            color: #fff;
+            font-size: 1.2em;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .amount {
+            font-size: 2.5em;
+            color: #0f0;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 0 20px #0f0;
+            animation: pulse 1s infinite;
+        }
+
+        .popup-button {
+            background: #f00;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .popup-button:hover {
+            background: #ff3333;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .footer-warning {
+            text-align: center;
+            margin-top: 40px;
+            color: #f00;
+            font-size: 1.2em;
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix" id="matrix"></canvas>
+    <div class="glitch-overlay"></div>
+    
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <div class="popup-icon">⚠️</div>
+            <h2>BANK ACCOUNT BREACH!</h2>
+            <p>Your account has been compromised!</p>
+            <div class="amount">RM 0.01</div>
+            <p>has been deducted from your bank account</p>
+            <p style="font-size: 0.9em; color: #ff0; margin-top: 20px;">
+                Transaction ID: #ONECENTthief_${Math.random().toString(36).substr(2, 9).toUpperCase()}
+            </p>
+            <button class="popup-button" onclick="closePopup()">CLOSE</button>
+        </div>
+    </div>
+
+    <div class="hacked-screen">
+        <div class="skull">☠️</div>
+        <h1>SYSTEM COMPROMISED</h1>
+        
+        <div class="terminal">
+            <div class="terminal-line"><span class="error">[ERROR]</span> Unauthorized access detected...</div>
+            <div class="terminal-line"><span class="warning">[WARNING]</span> Financial system breached...</div>
+            <div class="terminal-line"><span class="error">[ALERT]</span> Initiating micro-transaction protocol...</div>
+            <div class="terminal-line">Scanning accounts: <span class="blink">█</span></div>
+            <div class="terminal-line"><span class="error">[SUCCESS]</span> RM 0.01 transferred...</div>
+            <div class="terminal-line" style="color: #0f0;">Connection established to offshore account...</div>
+        </div>
+
+        <div class="terminal" style="margin-top: 40px;">
+            <h3 style="color: #0f0; margin-bottom: 15px;">THE ONE CENT THIEF</h3>
+            <p style="line-height: 1.8; color: #0f0;">
+                > While you were distracted by the small amount, millions of similar transactions occurred worldwide.<br>
+                > RM 0.01 x 10,000,000 accounts = RM 100,000<br>
+                > Too small to notice. Too massive to ignore.<br>
+                > The perfect crime exists in the decimal places.<br>
+                <br>
+                <span class="blink">_</span>
+            </p>
+        </div>
+
+        <div class="terminal" style="margin-top: 40px; border-color: #ff0;">
+            <h3 style="color: #ff0; margin-bottom: 15px; text-align: center;">🎧 LISTEN TO THE PRESENTATION TO UNDO THIS TRANSACTION 🎧</h3>
+        </div>
+
+        <div class="terminal" style="margin-top: 30px; background: rgba(0, 40, 0, 0.8);">
+            <h3 style="color: #0f0; margin-bottom: 15px;">📖 ABOUT "ONE CENT THIEF"</h3>
+            <p style="line-height: 1.8; color: #0f0; text-align: left;">
+                "One Cent Thief" is a gripping drama that explores the dark side of digital crime and the vulnerabilities in our modern financial systems. The story follows a brilliant cybercriminal who discovers that stealing just one cent from millions of bank accounts can accumulate into a massive fortune. All while flying completely under the radar.<br><br>
+                
+                <strong>Theme:</strong> The drama examines how small, seemingly insignificant actions can have enormous consequences when scaled up. It raises questions about digital security, ethics, and the fine line between genius and criminality.<br><br>
+                
+                <strong>Key Message:</strong> In the digital age, even the smallest breach can lead to catastrophic results. The "One Cent Thief" represents how modern crimes have evolved to exploit technology and human psychology - proving that sometimes, the most dangerous threats are the ones we don't even notice.<br><br>
+                
+                <span style="color: #ff0;">💡 This presentation demonstrates the concept through an immersive, interactive experience!</span>
+            </p>
+        </div>
+
+        <div class="footer-warning">
+            ⚠️ THIS IS A MOCK WEBSITE ⚠️<br>
+            No actual hacking or theft has occurred
+        </div>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Close popup function
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Auto-hide popup after 10 seconds
+        setTimeout(() => {
+            const popup = document.getElementById('popup');
+            if (popup) {
+                popup.style.opacity = '1';
+                popup.style.transition = 'opacity 1s';
+                setTimeout(() => {
+                    popup.style.opacity = '0';
+                    setTimeout(() => {
+                        popup.style.display = 'none';
+                    }, 1000);
+                }, 100);
+            }
+        }, 10000);
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
