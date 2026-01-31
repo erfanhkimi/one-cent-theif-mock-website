@@ -300,6 +300,17 @@
             }
         }
 
+        .transaction-id {
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+
+        @media (max-width: 480px) {
+            .transaction-id {
+                font-size: 0.75em !important;
+            }
+        }
+
         .amount {
             font-size: 2.5em;
             color: #0f0;
@@ -403,7 +414,7 @@
             <p>Your account has been compromised!</p>
             <div class="amount">RM 0.01</div>
             <p>has been deducted from your bank account</p>
-            <p style="font-size: 0.9em; color: #ff0; margin-top: 20px;">
+            <p class="transaction-id" style="font-size: 0.9em; color: #ff0; margin-top: 20px; word-break: break-all; overflow-wrap: break-word;">
                 Transaction ID: #ONECENTthief_${Math.random().toString(36).substr(2, 9).toUpperCase()}
             </p>
             <button class="popup-button" onclick="closePopup()">CLOSE</button>
@@ -436,11 +447,11 @@
         </div>
 
         <div class="terminal" style="margin-top: 40px; border-color: #ff0;">
-            <h3 style="color: #ff0; margin-bottom: 15px; text-align: center;"> LISTEN TO THE PRESENTATION TO UNDO THIS TRANSACTION </h3>
+            <h3 style="color: #ff0; margin-bottom: 15px; text-align: center;">🎧 LISTEN TO THE PRESENTATION TO UNDO THIS TRANSACTION 🎧</h3>
         </div>
 
         <div class="terminal" style="margin-top: 30px; background: rgba(0, 40, 0, 0.8);">
-            <h3 style="color: #0f0; margin-bottom: 15px;"> ABOUT "ONE CENT THIEF"</h3>
+            <h3 style="color: #0f0; margin-bottom: 15px;">📖 ABOUT "ONE CENT THIEF"</h3>
             <p style="line-height: 1.8; color: #0f0; text-align: left;">
                 "One Cent Thief" is a gripping drama that explores the dark side of digital crime and the vulnerabilities in our modern financial systems. The story follows a brilliant cybercriminal who discovers that stealing just one cent from millions of bank accounts can accumulate into a massive fortune - all while flying completely under the radar.<br><br>
                 
