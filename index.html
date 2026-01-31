@@ -39,16 +39,22 @@
         .hacked-screen {
             position: relative;
             z-index: 2;
-            padding: 40px;
+            padding: 20px;
             height: 100vh;
             overflow-y: auto;
         }
 
         .skull {
-            font-size: 100px;
+            font-size: 80px;
             text-align: center;
             margin: 20px 0;
             animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .skull {
+                font-size: 60px;
+            }
         }
 
         @keyframes pulse {
@@ -69,6 +75,18 @@
             text-shadow: 0 0 10px #f00, 0 0 20px #f00;
             margin-bottom: 30px;
             animation: glitch 1s infinite;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
         }
 
         @keyframes glitch {
@@ -97,6 +115,22 @@
             max-width: 800px;
             border-radius: 5px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .terminal {
+                padding: 15px;
+                margin: 15px auto;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terminal {
+                padding: 10px;
+                margin: 10px auto;
+                font-size: 0.8em;
+            }
         }
 
         .terminal-line {
@@ -173,6 +207,20 @@
             animation: popupSlide 0.5s ease-out;
         }
 
+        @media (max-width: 768px) {
+            .popup {
+                padding: 30px 20px;
+                width: 85%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup {
+                padding: 20px 15px;
+                width: 90%;
+            }
+        }
+
         @keyframes popupSlide {
             from {
                 transform: scale(0.5) translateY(-100px);
@@ -190,6 +238,20 @@
             animation: shake 0.5s infinite;
         }
 
+        @media (max-width: 768px) {
+            .popup-icon {
+                font-size: 60px;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-icon {
+                font-size: 50px;
+                margin-bottom: 10px;
+            }
+        }
+
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-10px); }
@@ -203,11 +265,39 @@
             text-shadow: 0 0 10px #f00;
         }
 
+        @media (max-width: 768px) {
+            .popup h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup h2 {
+                font-size: 1.3em;
+                margin-bottom: 10px;
+            }
+        }
+
         .popup p {
             color: #fff;
             font-size: 1.2em;
             margin: 15px 0;
             line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .popup p {
+                font-size: 1em;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup p {
+                font-size: 0.9em;
+                margin: 8px 0;
+            }
         }
 
         .amount {
@@ -217,6 +307,20 @@
             margin: 20px 0;
             text-shadow: 0 0 20px #0f0;
             animation: pulse 1s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .amount {
+                font-size: 2em;
+                margin: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .amount {
+                font-size: 1.8em;
+                margin: 10px 0;
+            }
         }
 
         .popup-button {
@@ -231,6 +335,20 @@
             font-family: 'Courier New', monospace;
             transition: all 0.3s;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .popup-button {
+                padding: 12px 30px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-button {
+                padding: 10px 25px;
+                font-size: 1em;
+            }
         }
 
         .popup-button:hover {
@@ -256,6 +374,20 @@
             color: #f00;
             font-size: 1.2em;
             animation: blink 1s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .footer-warning {
+                font-size: 1em;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-warning {
+                font-size: 0.85em;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -304,13 +436,13 @@
         </div>
 
         <div class="terminal" style="margin-top: 40px; border-color: #ff0;">
-            <h3 style="color: #ff0; margin-bottom: 15px; text-align: center;">🎧 LISTEN TO THE PRESENTATION TO UNDO THIS TRANSACTION 🎧</h3>
+            <h3 style="color: #ff0; margin-bottom: 15px; text-align: center;"> LISTEN TO THE PRESENTATION TO UNDO THIS TRANSACTION </h3>
         </div>
 
         <div class="terminal" style="margin-top: 30px; background: rgba(0, 40, 0, 0.8);">
-            <h3 style="color: #0f0; margin-bottom: 15px;">📖 ABOUT "ONE CENT THIEF"</h3>
+            <h3 style="color: #0f0; margin-bottom: 15px;"> ABOUT "ONE CENT THIEF"</h3>
             <p style="line-height: 1.8; color: #0f0; text-align: left;">
-                "One Cent Thief" is a gripping drama that explores the dark side of digital crime and the vulnerabilities in our modern financial systems. The story follows a brilliant cybercriminal who discovers that stealing just one cent from millions of bank accounts can accumulate into a massive fortune. All while flying completely under the radar.<br><br>
+                "One Cent Thief" is a gripping drama that explores the dark side of digital crime and the vulnerabilities in our modern financial systems. The story follows a brilliant cybercriminal who discovers that stealing just one cent from millions of bank accounts can accumulate into a massive fortune - all while flying completely under the radar.<br><br>
                 
                 <strong>Theme:</strong> The drama examines how small, seemingly insignificant actions can have enormous consequences when scaled up. It raises questions about digital security, ethics, and the fine line between genius and criminality.<br><br>
                 
@@ -321,7 +453,7 @@
         </div>
 
         <div class="footer-warning">
-            ⚠️ THIS IS A MOCK WEBSITE ⚠️<br>
+            ⚠️ THIS IS A MOCK WEB ⚠️<br>
             No actual hacking or theft has occurred
         </div>
     </div>
